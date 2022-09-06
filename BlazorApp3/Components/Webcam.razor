@@ -1,0 +1,55 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JS
+<video @ref="webcamElement" autoPlay playsInline width="@Width" height="@Height"></video>
+
+@code {
+
+    [Parameter]
+    public string Width { get; set; } = "640";
+
+    [Parameter]
+    public string Height { get; set; } = "480";
+
+    private ElementReference webcamElement;
+    //ElementReference snapSoundElement;
+
+    private IJSObjectReference _webcam;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Webcam.razor.js");
+            var options = new
+            {
+                WebcamElement = webcamElement,
+            };
+            _webcam = await module.InvokeAsync<IJSObjectReference>("newWebcam", options); // IJSObjectReference
+        }
+    }
+
+    public async Task StartAsync(bool startStreaming = true)
+    {
+        await _webcam.InvokeVoidAsync("startAsync", startStreaming);
+    }
+
+    public async Task StopAsync()
+    {
+        await _webcam.InvokeVoidAsync("stop");
+    }
+
+    public async Task CaptureAsync(ElementReference canvasElement, ElementReference webcamSnapshotElement)
+    {
+        await _webcam.InvokeVoidAsync("capture", canvasElement, webcamSnapshotElement);
+    }
+    
+    public async Task ClearCaptureAsync(ElementReference canvasElement)
+    {
+        await _webcam.InvokeVoidAsync("clearCapture", canvasElement);
+    }
+
+    public async Task FlipAsync()
+    {
+        await _webcam.InvokeVoidAsync("flip");
+    }
+}

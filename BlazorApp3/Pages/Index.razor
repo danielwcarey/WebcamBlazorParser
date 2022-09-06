@@ -1,0 +1,58 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<div class="App">
+    <header class="App-header">
+        <ul class="nav nav-pills list-group-horizontal">
+            <li>
+                <button @onclick="(() => webcam.StartAsync())" type="button" class="btn btn-primary">Start</button>
+            </li>
+            <li>
+                <button @onclick="(() => webcam.StopAsync())" type="button" class="btn btn-primary">Stop</button>
+            </li>
+            <li class="nav-item">
+                <button @onclick="(() => webcam.CaptureAsync(canvasElement, webcamSnapshotElement))" type="button" class="btn btn-success">Capture</button>
+            </li>
+            <li class="nav-item">
+                <button @onclick="(() => webcam.ClearCaptureAsync(canvasElement))" type="button" class="btn btn-success">Clear Capture</button>
+            </li>
+            <li class="nav-item">
+                <button @onclick="(() => webcam.FlipAsync())" type="button" class="btn btn-warning">Flip</button>
+            </li>
+            <li class="nav-item">
+                <button @onclick="(async () => await OnParseTextAsync())" type="button" class="btn btn-primary">Parse Text</button>
+            </li>
+        </ul>
+        <ul class="nav nav-pills list-group-horizontal">
+            <li class="nav-item">
+                <Webcam @ref="webcam"></Webcam>
+            </li>
+            <li @ref="webcamSnapshotElement" class="nav-item">
+                <a>
+                    <canvas @ref="canvasElement" className="d-block" width="@Width" height="@Height"></canvas>
+                </a>
+            </li>
+            <li class="nav-item">
+                <audio id="snapSound" @ref="snapSoundElement"></audio>
+            </li>
+        </ul>
+    </header>
+    <div class="modal-dialog modal-dialog-scrollable">
+    </div>
+</div>
+
+@code {
+    Webcam webcam;    
+    ElementReference canvasElement;
+    ElementReference webcamSnapshotElement;
+    ElementReference snapSoundElement;
+
+    public string Width { get; set; } = "640";
+    public string Height { get; set; } = "480";
+
+    async ValueTask OnParseTextAsync()
+    {
+
+    }
+}
