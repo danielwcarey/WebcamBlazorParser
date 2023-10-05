@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.32804.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebcamBlazorParser", "BlazorApp3\WebcamBlazorParser.csproj", "{2A66168D-ECE2-4762-B9DA-E8DEA276E45F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebcamBlazorParser", "src\WebcamBlazorParser\WebcamBlazorParser.csproj", "{CEEC5AF7-2DA0-4A01-A289-0BB2F0EBB3F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D58F6DA7-F57F-4BE4-92A2-FC27323FEA9C}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +17,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2A66168D-ECE2-4762-B9DA-E8DEA276E45F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A66168D-ECE2-4762-B9DA-E8DEA276E45F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A66168D-ECE2-4762-B9DA-E8DEA276E45F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A66168D-ECE2-4762-B9DA-E8DEA276E45F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEEC5AF7-2DA0-4A01-A289-0BB2F0EBB3F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEEC5AF7-2DA0-4A01-A289-0BB2F0EBB3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEEC5AF7-2DA0-4A01-A289-0BB2F0EBB3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEEC5AF7-2DA0-4A01-A289-0BB2F0EBB3F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
